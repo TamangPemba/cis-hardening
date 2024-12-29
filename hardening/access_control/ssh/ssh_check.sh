@@ -1,0 +1,4 @@
+sshd -T | grep -i disableforwarding
+sshd -T | grep gssapiauthentication
+
+
