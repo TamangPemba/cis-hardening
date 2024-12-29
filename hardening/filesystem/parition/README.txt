@@ -1,13 +1,16 @@
-Need to Create seprated partition like and mounted on different directories. 
-i.g.
-/home     defaults,rw,nosuid,nodev,noexec,relatime,seclabel 0 0 
-/var      defaults,rw,nosuid,nodev,noexec,relatime,seclabel 0 0 
-/var/log  defaults,rw,nosuid,nodev,noexec,relatime,seclabel 0 0
-var/tmp	  defaults,rw,nosuid,nodev,noexec,relatime,seclabel 0 0
-/var/log/audit defaults,rw,nosuid,nodev,noexec,relatime,seclabel 0 0
+Need to create seprate partition and on different directories. 
 
-same on different partition. 
-Verification
+i.e. 
+
+/home	     	defaults,rw,nosuid,nodev,noexec,relatime,seclabel 0 0 
+/var     	defaults,rw,nosuid,nodev,noexec,relatime,seclabel 0 0 
+/var/log  	defaults,rw,nosuid,nodev,noexec,relatime,seclabel 0 0
+var/tmp	  	defaults,rw,nosuid,nodev,noexec,relatime,seclabel 0 0
+/var/log/audit 	defaults,rw,nosuid,nodev,noexec,relatime,seclabel 0 0
+
+
+#Verification
+
 findmnt -kn /home
 findmnt -kn /var/tmp
 findmnt -kn /var
