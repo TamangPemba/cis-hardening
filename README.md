@@ -2,177 +2,6 @@
 
 This repository is designed to automate the hardening process for **Ubuntu 24.04**, following the **CIS Ubuntu Linux 24.04 LTS Benchmark v1.0.0 (08-26-2024)**. The structure is organized to focus on various areas of system security, ensuring each component is properly configured and checked. 
 
-## Directory Structure
-root@dmn-hardened-ubuntu-24:/# tree hardening/
-hardening/
-├── access_control
-│   ├── account
-│   │   ├── password_check.sh
-│   │   └── password_rem.sh
-│   ├── pam
-│   │   ├── security_check.sh
-│   │   └── security_rem.sh
-│   ├── privilege
-│   │   ├── sudo_check.sh
-│   │   └── sudo_rem.sh
-│   ├── shell
-│   │   ├── nologin_check.sh
-│   │   └── nologin_rem.sh
-│   └── ssh
-│       ├── ssh_check.sh
-│       └── ssh_rem.sh
-├── auditd
-│   ├── automate
-│   │   ├── auditauto_check.sh
-│   │   └── auditauto_rem.sh
-│   ├── commands
-│   │   ├── auditchacl_check.sh
-│   │   ├── auditchacl_rem.sh
-│   │   ├── auditchcon_check.sh
-│   │   ├── auditchcon_rem.sh
-│   │   ├── auditsetfacl_check.sh
-│   │   ├── auditsetfacl_rem.sh
-│   │   ├── auditusermod_check.sh
-│   │   └── auditusermod_rem.sh
-│   ├── cryptographic
-│   │   ├── auditaide_check.sh
-│   │   ├── auditaide_rem.sh
-│   │   └── README.txt
-│   ├── disk
-│   │   ├── auditdiskconf_check.sh
-│   │   └── auditdiskconf_rem.sh
-│   ├── files
-│   │   ├── auditfiledel_check.sh
-│   │   ├── auditfiledel_rem.sh
-│   │   ├── auditfilegrpowner_check.sh
-│   │   ├── auditfilegrpowner_rem.sh
-│   │   ├── auditfilemode_check.sh
-│   │   ├── auditfilemode_rem.sh
-│   │   ├── auditfileowner_check.sh
-│   │   └── auditfileowner_rem.sh
-│   ├── grub
-│   │   ├── auditgrub_check.sh
-│   │   └── auditgrub_rem.sh
-│   ├── kernel
-│   │   ├── auditkerneldisk_check.sh
-│   │   ├── auditkernelloaded_check.sh
-│   │   ├── auditkernel_rem.sh
-│   │   └── auditkernelsymlink_check.sh
-│   ├── log
-│   │   ├── auditbackloglimit_check.sh
-│   │   ├── auditbackloglimit_rem.sh
-│   │   ├── auditlogautonotdel_check.sh
-│   │   ├── auditlogautonotdel_rem.sh
-│   │   ├── auditlogsize_check.sh
-│   │   └── auditlogsize_rem.sh
-│   ├── modification
-│   │   ├── auditacl_check.sh
-│   │   ├── auditacl_rem.sh
-│   │   ├── auditapparmor_check.sh
-│   │   ├── auditapparmor_rem.sh
-│   │   ├── auditnetwork_check.sh
-│   │   ├── auditnetwork_rem.sh
-│   │   ├── audittimechange_check.sh
-│   │   ├── audittimechange_rem.sh
-│   │   ├── auditusergrp_check.sh
-│   │   └── auditusergrp_rem.sh
-│   ├── mount
-│   │   ├── auditmount_check.sh
-│   │   └── auditmount_rem.sh
-│   ├── packages
-│   │   ├── auditpkg_check.sh
-│   │   └── auditpkg_rem.sh
-│   ├── permission
-│   │   ├── directory
-│   │   │   ├── auditdirmode_check.sh
-│   │   │   └── auditdirmode_rem.sh
-│   │   ├── files
-│   │   │   ├── auditfilemode_check.sh
-│   │   │   └── auditfilemode_rem.sh
-│   │   ├── owner
-│   │   │   ├── auditconfgrpowner_check.sh
-│   │   │   ├── auditconfgrpowner_rem.sh
-│   │   │   ├── auditconfowner_check.sh
-│   │   │   └── auditconfowner_rem.sh
-│   │   └── tools
-│   │       ├── audittools_check.sh
-│   │       ├── audittoolsgrpowner_check.sh
-│   │       ├── audittoolsgrpowner_rem.sh
-│   │       ├── audittoolsowner_check.sh
-│   │       ├── audittoolsowner_rem.sh
-│   │       └── audittools_rem.sh
-│   ├── privilege
-│   │   ├── auditdisk_check.sh
-│   │   ├── auditdisk_rem.sh
-│   │   └── auditdiskrule_check.sh
-│   ├── session
-│   │   ├── auditlogin_check.sh
-│   │   ├── auditlogin_rem.sh
-│   │   ├── auditsession_check.sh
-│   │   └── auditsession_rem.sh
-│   ├── system
-│   │   ├── auditservice_check.sh
-│   │   ├── auditservice_rem.sh
-│   │   ├── auditsystemdisable_check.sh
-│   │   ├── auditsystemdisable_rem.sh
-│   │   ├── auditsystemwarn_check.sh
-│   │   └── auditsystemwarn_rem.sh
-│   ├── unsuccessful
-│   │   ├── auditunsuccessfulfile_check.sh
-│   │   └── auditunsuccessfulfile_rem.sh
-│   └── user
-│       ├── auditsudolog_check.sh
-│       ├── auditsudolog_rem.sh
-│       ├── auditsudomon_check.sh
-│       ├── auditsudomon_rem.sh
-│       ├── audituserlogged_check.sh
-│       └── audituserlogged_rem.sh
-├── filesystem
-│   ├── kernel
-│   │   ├── overlayfs
-│   │   │   ├── overlay_check.sh
-│   │   │   └── overlay_rem.sh
-│   │   ├── squashfs
-│   │   │   ├── squash_check.sh
-│   │   │   └── squash_rem.sh
-│   │   └── udf
-│   │       ├── udf_check.sh
-│   │       └── udf_rem.sh
-│   ├── packages
-│   │   ├── apparmor
-│   │   │   ├── apparmor_check.sh
-│   │   │   └── apparmor_rem.sh
-│   │   └── gdm
-│   │       ├── gdm_check.sh
-│   │       └── gdm_rem.sh
-│   └── parition
-│       ├── partition_check.sh
-│       └── README.txt
-├── network
-│   └── kernel
-│       ├── dccp
-│       │   ├── dccp_check.sh
-│       │   └── dccp_rem.sh
-│       ├── rds
-│       │   ├── rds_check.sh
-│       │   └── rds_rem.sh
-│       ├── sctp
-│       │   ├── sctp_check.sh
-│       │   └── sctp_rem.sh
-│       └── tipc
-│           ├── tipc_check.sh
-│           └── tipc_rem.sh
-├── services
-│   └── xserver
-│       ├── xserver_check.sh
-│       └── xserver_rem.sh
-├── ubuntu24_check.sh
-└── ubuntu24_rem.sh
-
-46 directories, 118 files
-
-
-
 ### Overview
 
 The **`/hardening`** directory is the parent directory containing various subdirectories for different security areas like access control, auditd, filesystem, network, and services.
@@ -246,19 +75,25 @@ While initially, all of the configurations and checks were done manually, I have
 ## How to Use
 
 1. Clone the repository:
+   ```bash
    git clone https://github.com/TamangPemba/cis-hardening.git
    cd cis-hardening
+   ```
 
 2. Run the check script:
+   ```bash
     sudo bash hardening/ubuntu24_check.sh
-
+   ```
 3. Run the remediation script:
+   ```bash
     sudo bash hardening/ubuntu24_rem.sh
+   ```
 
-4. Clean up temporary files (if you terminate while executing script!):
+5. Clean up temporary files (if you terminate while executing script!):
+   ```bash
     sudo rm -f /tmp/ubuntu_24*
+   ```
 
 These scripts follow the CIS Ubuntu 24.04 LTS Benchmark and help secure your system by applying best practices for system hardening.
 
-==================Thank You!=================
-===============Pemba T. Tamang===============
+## Thank You! 
