@@ -1,3 +1,4 @@
+#!/bin/bash
 echo
 echo "Set the following parameter in /etc/audit/auditd.conf in accordance with site policy"
 echo

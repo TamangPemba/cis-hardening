@@ -1,3 +1,4 @@
+#!/bin/bash
 echo
 grep -Po -- '^\h*max_log_file\h*=\h*\d+\b' /etc/audit/auditd.conf
 echo

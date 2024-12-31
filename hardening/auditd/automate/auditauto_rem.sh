@@ -1,3 +1,4 @@
+#!/bin/bash
 printf '\n%s' "-e 2" > /etc/audit/rules.d/finalize.rules
 echo
 augenrules --load

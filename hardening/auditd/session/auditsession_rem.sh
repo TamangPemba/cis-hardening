@@ -1,3 +1,4 @@
+#!/bin/bash
 printf "
 -w /var/run/utmp -p wa -k session
 -w /var/log/wtmp -p wa -k session

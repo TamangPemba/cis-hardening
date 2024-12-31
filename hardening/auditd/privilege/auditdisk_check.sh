@@ -1,3 +1,4 @@
+#!/bin/bash
 for PARTITION in $(findmnt -n -l -k -it $(awk '/nodev/ { print $2 }' /proc/filesystems | paste -sd,) | grep -Pv "noexec|nosuid" | awk '{print $1}'); do
     echo "Checking partition: ${PARTITION}"
     for PRIVILEGED in $(find "${PARTITION}" -xdev -perm /6000 -type f); do

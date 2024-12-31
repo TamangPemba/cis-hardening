@@ -1,3 +1,4 @@
+#!/bin/bash
 printf "
 -w /etc/apparmor/ -p wa -k MAC-policy
 -w /etc/apparmor.d/ -p wa -k MAC-policy

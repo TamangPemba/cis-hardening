@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 {
  auditctl -l | awk '/^ *-a *always,exit/ \

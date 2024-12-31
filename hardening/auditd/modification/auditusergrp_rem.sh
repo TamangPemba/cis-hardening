@@ -1,3 +1,4 @@
+#!/bin/bash
 printf "
 -w /etc/group -p wa -k identity
 -w /etc/passwd -p wa -k identity

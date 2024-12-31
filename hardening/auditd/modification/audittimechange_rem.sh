@@ -1,4 +1,5 @@
- printf "
+#!/bin/bash
+printf "
 -a always,exit -F arch=b64 -S adjtimex,settimeofday -k time-change
 -a always,exit -F arch=b32 -S adjtimex,settimeofday -k time-change
 -a always,exit -F arch=b64 -S clock_settime -F a0=0x0 -k time-change

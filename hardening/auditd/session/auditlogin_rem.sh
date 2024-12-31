@@ -1,3 +1,4 @@
+#!/bin/bash
 printf "
 -w /var/log/lastlog -p wa -k logins
 -w /var/run/faillock -p wa -k logins

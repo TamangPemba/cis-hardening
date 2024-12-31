@@ -1,3 +1,4 @@
+#!/bin/bash
 findmnt -kn /home
 findmnt -kn /var
 findmnt -kn /var/log
