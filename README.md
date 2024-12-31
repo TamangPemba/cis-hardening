@@ -80,9 +80,9 @@ While initially, all of the configurations and checks were done manually, I have
    cd cis-hardening
    ```
 
-2. Run the check script:
+2. Run the check script: (Note: You might need to execute this twice because the order is mismatched. Initially, it will install the necessary packages.) 
    ```bash
-    sudo bash hardening/ubuntu24_check.sh
+    sudo bash hardening/ubuntu24_check.sh 
    ```
 3. Run the remediation script:
    ```bash
